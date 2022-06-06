@@ -6,9 +6,11 @@ import com.example.calaverabackend.service.interfaces.IPlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PlayerService implements IPlayerService {
-    private PlayerRepository playerRepository;
+    private final PlayerRepository playerRepository;
 
     @Autowired
     public PlayerService(PlayerRepository playerRepository) {
@@ -18,4 +20,11 @@ public class PlayerService implements IPlayerService {
     public void save(Player player) {
         playerRepository.save(player);
     }
+
+    @Override
+    public List<Player> findPlayersByGameId(Long gameId) {
+        return playerRepository.findPlayersByGameId(gameId);
+    }
+
+
 }

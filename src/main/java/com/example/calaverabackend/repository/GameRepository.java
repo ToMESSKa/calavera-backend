@@ -10,5 +10,6 @@ import java.util.List;
 @Repository
 public interface GameRepository extends JpaRepository<Game, Long> {
 
-    Game findGameByGameId(Long gameId);
+    public Game findGameByGameId(Long gameId);
+
 }

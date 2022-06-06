@@ -13,6 +13,4 @@ public interface IGameService {
     public Game connectToRandomGame(Player player2);
 
     void save(Game game);
-    Game findGameByGameId(Long gameId);
-
 }
