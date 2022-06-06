@@ -3,6 +3,7 @@ package com.example.calaverabackend.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -15,18 +16,8 @@ public class Game {
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Long gameId;
 
-        @ManyToOne
-        private Player player1;
+        @ManyToMany(mappedBy = "games", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+        @EqualsAndHashCode.Exclude
+        private List<Player> players;
 
-        @ManyToOne
-        private Player player2;
-
-        @Override
-        public String toString() {
-                return "Game{" +
-                        "gameId=" + gameId +
-                        ", player1=" + player1 +
-                        ", player2=" + player2 +
-                        '}';
-        }
 }

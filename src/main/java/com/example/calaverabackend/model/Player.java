@@ -19,17 +19,8 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToMany(mappedBy = "player1", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    @EqualsAndHashCode.Exclude
-    private List<Game> gamesAsFirstPlayer;
+    @ManyToMany
+    private List<Game> games;
 
     private String playerName;
-
-    @Override
-    public String toString() {
-        return "Player{" +
-                "id=" + id +
-                ", playerName='" + playerName + '\'' +
-                '}';
-    }
 }

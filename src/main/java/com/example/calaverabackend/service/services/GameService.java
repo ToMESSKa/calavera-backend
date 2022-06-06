@@ -19,15 +19,21 @@ public class GameService implements IGameService {
 
     @Override
     public Game createGame(Player player) {
-        Game game = new Game();
-        game.setPlayer1(player);
-        gameRepository.save(game);
-        return game;
+        return null;
+//        Game game = new Game();
+//        game.setPlayer1(player);
+//        gameRepository.save(game);
+//        return game;
     }
 
     @Override
     public Game connectToGame(Player player2, Long gameId) {
-        return null;
+            return null;
+
+//        game.setPlayer2(player2);
+//        game.setStatus(IN_PROGRESS);
+//        GameStorage.getInstance().setGame(game);
+//        return game;
     }
 
     @Override
@@ -39,10 +45,9 @@ public class GameService implements IGameService {
     public void save(Game game) {
         gameRepository.save(game);
     }
-
-    public List<Game> findGamesByPlayer1(Player player){
-        return gameRepository.findGamesByPlayer1(player);
+    @Override
+    public Game findGameByGameId(Long gameId) {
+        return gameRepository.findGameByGameId(gameId);
     }
-
 
 }

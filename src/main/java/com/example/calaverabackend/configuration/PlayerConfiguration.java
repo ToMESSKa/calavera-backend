@@ -27,17 +27,22 @@ public class PlayerConfiguration {
             return args -> {
                 Game game = Game.builder()
                         .build();
-                List<Game> gamesAsFirstPlayer = new ArrayList<>();
-                gamesAsFirstPlayer.add(game);
-                Player player = Player.builder()
-                        .playerName("Tamas")
-                        .gamesAsFirstPlayer(gamesAsFirstPlayer)
+                List<Game> games = new ArrayList<>();
+                games.add(game);
+                Player player1 = Player.builder()
+                        .playerName("Tamás")
+                        .games(games)
                         .build();
-                game.setPlayer1(player);
-                playerService.save(player);
+                Player player2 = Player.builder()
+                        .playerName("Dávid")
+                        .games(games)
+                        .build();
+                List<Player> players = new ArrayList<>();
+                game.setPlayers(players);
                 gameService.save(game);
-                List<Game> games = gameService.findGamesByPlayer1(player);
-                System.out.println(games.get(0));
+                playerService.save(player1);
+                playerService.save(player2);
+
             };
         };
     }
