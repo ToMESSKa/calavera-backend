@@ -21,10 +21,6 @@ public class PlayerService implements IPlayerService {
         playerRepository.save(player);
     }
 
-    @Override
-    public List<Player> findPlayersByGameId(Long gameId) {
-        return playerRepository.findPlayersByGameId(gameId);
-    }
 
 
 }

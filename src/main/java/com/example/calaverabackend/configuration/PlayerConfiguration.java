@@ -42,7 +42,6 @@ public class PlayerConfiguration {
                 gameService.save(game);
                 playerService.save(player1);
                 playerService.save(player2);
-
             };
         };
     }
