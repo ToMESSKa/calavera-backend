@@ -17,28 +17,27 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins="http://localhost:3000")
 public class GameController {
 
-//
-//    private PlayerService playerService;
-//    private GameService gameService;
-//    private SimpMessagingTemplate simpMessagingTemplate;
-//
-//    @Autowired GameController(PlayerService playerService, GameService gameService){
-//        this.playerService = playerService;
-//        this.gameService = gameService;
-//    }
-//
-//    @PostMapping("/start")
-//    public ResponseEntity<Game> start(@RequestBody Player player) {
-//        return ResponseEntity.ok(gameService.createGame(player));
-//    }
-//
-//    @PostMapping("/registernewplayer")
-//    public void registerNewPlayer(@RequestBody Player player) {
-//        System.out.println(player);
-//        playerService.save(player);
-//    }
 
-    // Handles messages from /app/chat. (Note the Spring adds the /app prefix for us).
+    private PlayerService playerService;
+    private GameService gameService;
+    private SimpMessagingTemplate simpMessagingTemplate;
+
+    @Autowired GameController(PlayerService playerService, GameService gameService){
+        this.playerService = playerService;
+        this.gameService = gameService;
+    }
+
+    @PostMapping("/start")
+    public ResponseEntity<Game> start(@RequestBody Player player) {
+        return ResponseEntity.ok(gameService.createGame(player));
+    }
+
+    @PostMapping("/registernewplayer")
+    public void registerNewPlayer(@RequestBody Player player) {
+        System.out.println(player);
+        playerService.save(player);
+    }
+
     @MessageMapping("/gameplay")
     @SendTo("/topic/wstest")
     public Game getMessages(){
