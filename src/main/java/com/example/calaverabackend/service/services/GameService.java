@@ -22,25 +22,28 @@ public class GameService implements IGameService {
 
     @Override
     public Game createGame(Player player) {
-        List<Player> players = new ArrayList<>();
-        players.add(player);
         Game game = Game.builder()
-                .players(players)
                 .build();
-        playerRepository.save(player);
+        List<Game> games = new ArrayList<>();
+        games.add(game);
+        player.setGames(games);
+        List<Player> players = new ArrayList<>();
+        game.setPlayers(players);
         gameRepository.save(game);
+        playerRepository.save(player);
         return game;
     }
     @Override
     public Game connectToGame(Player player2, Long gameId) {
-            Game game = gameRepository.findGameByGameId(gameId);
-            if (doesTheGameNeedASecondPlayer(game)){
-                List <Player> players = game.getPlayers();
-                players.add(player2);
-                game.setPlayers(players);
-                save(game);
-            }
-            return game;
+        Game game = gameRepository.findGameByGameId(gameId);
+        System.out.println(game);
+        if (doesTheGameNeedASecondPlayer(game)){
+            List <Player> players = game.getPlayers();
+            players.add(player2);
+            game.setPlayers(players);
+            save(game);
+        }
+        return game;
     }
 
     @Override

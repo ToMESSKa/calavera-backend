@@ -1,5 +1,6 @@
 package com.example.calaverabackend.controller;
 
+import com.example.calaverabackend.controller.DTO.ConnectRequest;
 import com.example.calaverabackend.model.Game;
 import com.example.calaverabackend.model.Player;
 import com.example.calaverabackend.service.services.GameService;
@@ -30,6 +31,14 @@ public class GameController {
     @PostMapping("/start")
     public ResponseEntity<Game> start(@RequestBody Player player) {
         return ResponseEntity.ok(gameService.createGame(player));
+    }
+
+    @PostMapping("/connect")
+    public ResponseEntity<Game> connect(@RequestBody ConnectRequest request){
+        System.out.println(request.getPlayer());
+        Game game = gameService.connectToGame(request.getPlayer(), request.getGameId());
+        System.out.println(game);
+        return ResponseEntity.ok(game);
     }
 
     @PostMapping("/registernewplayer")
