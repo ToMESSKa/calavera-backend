@@ -13,6 +13,9 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @Slf4j
 @CrossOrigin(origins="http://localhost:3000")
@@ -34,11 +37,11 @@ public class GameController {
     }
 
     @PostMapping("/connect")
-    public ResponseEntity<Game> connect(@RequestBody ConnectRequest request){
+    public Game connect(@RequestBody ConnectRequest request){
         System.out.println(request.getPlayer());
+        System.out.println(request.getGameId());
         Game game = gameService.connectToGame(request.getPlayer(), request.getGameId());
-        System.out.println(game);
-        return ResponseEntity.ok(game);
+        return game;
     }
 
     @PostMapping("/registernewplayer")

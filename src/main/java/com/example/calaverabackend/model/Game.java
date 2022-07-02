@@ -20,4 +20,11 @@ public class Game {
         @EqualsAndHashCode.Exclude
         private List<Player> players;
 
+        @Override
+        public String toString() {
+                return "Game{" +
+                        "gameId=" + gameId +
+                        ", players=" + players +
+                        '}';
+        }
 }
