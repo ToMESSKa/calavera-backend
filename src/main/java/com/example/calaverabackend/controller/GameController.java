@@ -1,6 +1,7 @@
 package com.example.calaverabackend.controller;
 
 import com.example.calaverabackend.controller.DTO.ConnectRequest;
+import com.example.calaverabackend.controller.DTO.DiceRoll;
 import com.example.calaverabackend.model.Game;
 import com.example.calaverabackend.model.Player;
 import com.example.calaverabackend.service.services.GameService;
@@ -38,17 +39,15 @@ public class GameController {
 
     @PostMapping("/connect")
     public Game connect(@RequestBody ConnectRequest request){
-        System.out.println(request.getPlayer());
-        System.out.println(request.getGameId());
         Game game = gameService.connectToGame(request.getPlayer(), request.getGameId());
         return game;
     }
 
-    @PostMapping("/registernewplayer")
-    public void registerNewPlayer(@RequestBody Player player) {
-        System.out.println(player);
-        playerService.save(player);
-    }
+//    @PostMapping("/registernewplayer")
+//    public void registerNewPlayer(@RequestBody Player player) {
+//        System.out.println(player);
+//        playerService.save(player);
+//    }
 
     @MessageMapping("/gameplay")
     @SendTo("/topic/wstest")
@@ -56,5 +55,13 @@ public class GameController {
         Game game = Game.builder().gameId(2L).build();
         System.out.println(game);
         return game;
+    }
+
+
+    @MessageMapping("/rolldice")
+    @SendTo("/topic/dicerollresult")
+    public DiceRoll getDiceRollResult(@RequestBody DiceRoll diceRoll){
+        System.out.println(diceRoll);
+        return diceRoll;
     }
 }

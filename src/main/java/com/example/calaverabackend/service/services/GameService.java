@@ -38,14 +38,15 @@ public class GameService implements IGameService {
         Game game = gameRepository.findGameByGameId(gameId);
         if (doesTheGameNeedASecondPlayer(game)) {
             List<Player> players = game.getPlayers();
-            player2.setPlayerName("Dávid");
             players.add(player2);
             game.setPlayers(players);
+            System.out.println(players);
             List<Game> games = new ArrayList<>();
             games.add(game);
             player2.setGames(games);
-            gameRepository.save(game);
+            System.out.println(game);
             playerRepository.save(player2);
+            gameRepository.save(game);
         }
         return game;
     }

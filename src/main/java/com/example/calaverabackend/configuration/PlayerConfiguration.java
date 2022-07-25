@@ -25,23 +25,23 @@ public class PlayerConfiguration {
         @Bean
         CommandLineRunner commandLineRunnerAddUser(PlayerRepository playerRepository) {
             return args -> {
-                Game game = Game.builder()
-                        .build();
-                List<Game> games = new ArrayList<>();
-                games.add(game);
-                Player player1 = Player.builder()
-                        .playerName("Tamás")
-                        .games(games)
-                        .build();
-                Player player2 = Player.builder()
-                        .playerName("Dávid")
-                        .games(games)
-                        .build();
-                List<Player> players = new ArrayList<>();
-                game.setPlayers(players);
-                gameService.save(game);
-                playerService.save(player1);
-                playerService.save(player2);
+//                Game game = Game.builder()
+//                        .build();
+//                List<Game> games = new ArrayList<>();
+//                games.add(game);
+//                Player player1 = Player.builder()
+//                        .playerName("Tamás")
+//                        .games(games)
+//                        .build();
+//                Player player2 = Player.builder()
+//                        .playerName("Dávid")
+//                        .games(games)
+//                        .build();
+//                List<Player> players = new ArrayList<>();
+//                game.setPlayers(players);
+//                gameService.save(game);
+//                playerService.save(player1);
+//                playerService.save(player2);
             };
         };
     }
