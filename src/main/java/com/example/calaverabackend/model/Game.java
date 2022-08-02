@@ -16,9 +16,17 @@ public class Game {
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Long gameId;
 
+        private GameStatus gameStatus;
+
         @ManyToMany(mappedBy = "games", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
         @EqualsAndHashCode.Exclude
         private List<Player> players;
+
+        public void setPlayers(List<Player> players) {
+                if (players.size() >= 2) {
+                        this.players = players;
+                }
+        }
 
         @Override
         public String toString() {

@@ -19,7 +19,7 @@ public class Player {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long playerID;
 
     @ManyToMany
     @EqualsAndHashCode.Exclude
@@ -27,10 +27,11 @@ public class Player {
 
     private String playerName;
 
+
     @Override
     public String toString() {
         return "Player{" +
-                "id=" + id +
+                "id=" + playerID +
                 ", playerName='" + playerName + '\'' +
                 '}';
     }

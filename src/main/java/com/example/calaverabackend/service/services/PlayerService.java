@@ -1,5 +1,6 @@
 package com.example.calaverabackend.service.services;
 
+import com.example.calaverabackend.model.Game;
 import com.example.calaverabackend.model.Player;
 import com.example.calaverabackend.repository.PlayerRepository;
 import com.example.calaverabackend.service.interfaces.IPlayerService;
@@ -21,6 +22,10 @@ public class PlayerService implements IPlayerService {
         playerRepository.save(player);
     }
 
+    @Override
+    public Player getPlayerByPlayerID(Long playerID) {
+        return playerRepository.getPlayerByPlayerID(playerID);
+    }
 
 
 }

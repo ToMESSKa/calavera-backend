@@ -10,4 +10,6 @@ import java.util.List;
 public interface IPlayerService {
 
     void save(Player player);
+
+    public Player getPlayerByPlayerID(Long playerID);
 }

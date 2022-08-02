@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface PlayerRepository extends JpaRepository<Player, Long> {
 
+    public Player getPlayerByPlayerID(Long playerId);
+
 }
