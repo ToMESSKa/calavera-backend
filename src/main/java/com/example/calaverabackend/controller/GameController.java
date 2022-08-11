@@ -39,7 +39,7 @@ public class GameController {
     }
 
     @MessageMapping("/rolldice")
-    @SendTo("/topic/dicerollresult")
+    @SendTo("/topic/getdicerollresult")
     public DiceRoll getDiceRollResult(@RequestBody DiceRoll diceRoll){
         System.out.println(diceRoll);
         return diceRoll;
