@@ -1,7 +1,6 @@
 package com.example.calaverabackend.controller;
 
-import com.example.calaverabackend.controller.DTO.ConnectRequest;
-import com.example.calaverabackend.controller.DTO.DiceRoll;
+import com.example.calaverabackend.controller.DTO.*;
 import com.example.calaverabackend.model.Game;
 import com.example.calaverabackend.model.Player;
 import com.example.calaverabackend.service.services.GameService;
@@ -41,7 +40,19 @@ public class GameController {
     @MessageMapping("/rolldice")
     @SendTo("/topic/getdicerollresult")
     public DiceRoll getDiceRollResult(@RequestBody DiceRoll diceRoll){
-        System.out.println(diceRoll);
         return diceRoll;
     }
+
+    @MessageMapping("/rerolldice")
+    @SendTo("/topic/getdicererollresult")
+    public Dice getRerollResult(@RequestBody Dice dice){
+        return dice;
+    }
+
+    @MessageMapping("/canceldice")
+    @SendTo("/topic/getcanceleddice")
+    public Dice getCanceledDice(@RequestBody Dice dice){
+        return dice;
+    }
+
 }
