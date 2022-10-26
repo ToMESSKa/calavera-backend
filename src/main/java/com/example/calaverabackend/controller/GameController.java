@@ -37,22 +37,28 @@ public class GameController {
         return game;
     }
 
-    @MessageMapping("/rolldice")
+    @MessageMapping("/rolleddice")
     @SendTo("/topic/getdicerollresult")
     public DiceRoll getDiceRollResult(@RequestBody DiceRoll diceRoll){
         return diceRoll;
     }
 
-    @MessageMapping("/rerolldice")
-    @SendTo("/topic/getdicererollresult")
+    @MessageMapping("/selectedrerolldice")
+    @SendTo("/topic/getseledteddicererollresult")
     public Dice getRerollResult(@RequestBody Dice dice){
         return dice;
     }
 
-    @MessageMapping("/canceldice")
+    @MessageMapping("/canceleddice")
     @SendTo("/topic/getcanceleddice")
     public Dice getCanceledDice(@RequestBody Dice dice){
         return dice;
+    }
+
+    @MessageMapping("/newdiceforroll")
+    @SendTo("/topic/getnewdiceforroll")
+    public DiceRoll getNewDiceForReroll(@RequestBody DiceRoll diceRoll){
+        return null;
     }
 
 }
