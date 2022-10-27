@@ -61,4 +61,10 @@ public class GameController {
         return diceRoll;
     }
 
+    @MessageMapping("/selectedcolor")
+    @SendTo("/topic/getselectedcolor")
+    public Dice getSelectedColor(@RequestBody Dice dice){
+        return dice;
+    }
+
 }
