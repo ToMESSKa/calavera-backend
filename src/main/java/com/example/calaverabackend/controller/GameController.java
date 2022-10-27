@@ -58,7 +58,7 @@ public class GameController {
     @MessageMapping("/newdiceforroll")
     @SendTo("/topic/getnewdiceforroll")
     public DiceRoll getNewDiceForReroll(@RequestBody DiceRoll diceRoll){
-        return null;
+        return diceRoll;
     }
 
 }
