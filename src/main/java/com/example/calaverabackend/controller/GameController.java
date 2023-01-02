@@ -67,4 +67,18 @@ public class GameController {
         return dice;
     }
 
+    @MessageMapping("/markedcells")
+    @SendTo("/topic/getmarkedcells")
+    public MarkedCells getMarkedCells(@RequestBody MarkedCells markedCells){
+        System.out.println(markedCells);
+        return markedCells;
+    }
+
+    @MessageMapping("/whoseturnitis")
+    @SendTo("/topic/getwhoseturnitis")
+    public WhoseTurnItIs getTurnOver(@RequestBody WhoseTurnItIs whoseTurnItIs){
+        System.out.println(whoseTurnItIs);
+        return whoseTurnItIs;
+    }
+
 }
