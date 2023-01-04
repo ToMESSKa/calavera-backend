@@ -76,9 +76,15 @@ public class GameController {
 
     @MessageMapping("/whoseturnitis")
     @SendTo("/topic/getwhoseturnitis")
-    public WhoseTurnItIs getTurnOver(@RequestBody WhoseTurnItIs whoseTurnItIs){
+    public WhoseTurnItIs getWhoseTurnItIs(@RequestBody WhoseTurnItIs whoseTurnItIs){
         System.out.println(whoseTurnItIs);
         return whoseTurnItIs;
+    }
+
+    @MessageMapping("/turnisover")
+    @SendTo("/topic/turnisover")
+    public TurnIsOver getTurnOver(@RequestBody TurnIsOver turnIsOver){
+        return turnIsOver;
     }
 
 }
