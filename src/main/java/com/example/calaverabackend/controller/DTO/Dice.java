@@ -1,14 +1,13 @@
 package com.example.calaverabackend.controller.DTO;
 
 
+import com.example.calaverabackend.model.DiceColor;
 import lombok.Data;
-
-import java.util.ArrayList;
 
 @Data
 public class Dice {
     private String diceNumber;
-    private Integer diceValue;
+    private int diceColor;
 
 
 }
