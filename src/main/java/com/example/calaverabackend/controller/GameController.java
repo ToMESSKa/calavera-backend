@@ -40,7 +40,6 @@ public class GameController {
     @MessageMapping("/rolleddice")
     @SendTo("/topic/getdicerollresult")
     public DiceRoll getDiceRollResult(@RequestBody DiceRoll diceRoll){
-        System.out.println(diceRoll);
         return diceRoll;
     }
 
@@ -71,7 +70,6 @@ public class GameController {
     @MessageMapping("/markedcells")
     @SendTo("/topic/getmarkedcells")
     public MarkedCells getMarkedCells(@RequestBody MarkedCells markedCells){
-        System.out.println(markedCells);
         return markedCells;
     }
 
