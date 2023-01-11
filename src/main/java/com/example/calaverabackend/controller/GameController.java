@@ -70,11 +70,12 @@ public class GameController {
     @MessageMapping("/markedcells")
     @SendTo("/topic/getmarkedcells")
     public MarkedCells getMarkedCells(@RequestBody MarkedCells markedCells){
+        System.out.println(markedCells);
         return markedCells;
     }
 
     @MessageMapping("/whoseturnitis")
-    @SendTo("/topic/getwhoseturnitis")
+    @SendTo("/topic/getwhichplayeristomarkcells")
     public WhoseTurnItIs getWhoseTurnItIs(@RequestBody WhoseTurnItIs whoseTurnItIs){
         System.out.println(whoseTurnItIs);
         return whoseTurnItIs;
