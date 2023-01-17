@@ -43,9 +43,10 @@ public class GameController {
         return diceRoll;
     }
 
-    @MessageMapping("/selectedrerolldice")
-    @SendTo("/topic/getseledteddicererollresult")
+    @MessageMapping("/selecteddiceforreroll")
+    @SendTo("/topic/getseledteddiceforreroll")
     public Dice getRerollResult(@RequestBody Dice dice){
+        System.out.println(dice);
         return dice;
     }
 
