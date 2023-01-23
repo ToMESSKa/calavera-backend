@@ -56,8 +56,8 @@ public class GameController {
         return dice;
     }
 
-    @MessageMapping("/newdiceforroll")
-    @SendTo("/topic/getnewdiceforroll")
+    @MessageMapping("/newdicesforroll")
+    @SendTo("/topic/getnewdicesforroll")
     public DiceRoll getNewDiceForReroll(@RequestBody DiceRoll diceRoll){
         return diceRoll;
     }
@@ -87,5 +87,7 @@ public class GameController {
     public TurnIsOver getTurnOver(@RequestBody TurnIsOver turnIsOver){
         return turnIsOver;
     }
+
+
 
 }
