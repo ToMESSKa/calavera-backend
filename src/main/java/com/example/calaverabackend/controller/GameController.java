@@ -46,7 +46,6 @@ public class GameController {
     @MessageMapping("/selecteddiceforreroll")
     @SendTo("/topic/getseledteddiceforreroll")
     public Dice getRerollResult(@RequestBody Dice dice){
-        System.out.println(dice);
         return dice;
     }
 
@@ -78,7 +77,6 @@ public class GameController {
     @MessageMapping("/whoseturnitis")
     @SendTo("/topic/getwhichplayeristomarkcells")
     public WhoseTurnItIs getWhoseTurnItIs(@RequestBody WhoseTurnItIs whoseTurnItIs){
-        System.out.println(whoseTurnItIs);
         return whoseTurnItIs;
     }
 
