@@ -9,5 +9,7 @@ import java.util.ArrayList;
 public class MarkedCells {
     private int numberOfDice;
     private int value;
+    private int playerToMarkCells;
+
 
 }

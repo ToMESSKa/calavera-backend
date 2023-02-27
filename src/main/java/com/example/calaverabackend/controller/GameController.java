@@ -83,6 +83,11 @@ public class GameController {
     @MessageMapping("/turnisover")
     @SendTo("/topic/turnisover")
     public TurnIsOver getTurnOver(@RequestBody TurnIsOver turnIsOver){
+        if (turnIsOver.getStartingPlayer() == 1){
+            turnIsOver.setStartingPlayer(2);
+        }else{
+            turnIsOver.setStartingPlayer(1);
+        }
         return turnIsOver;
     }
 
